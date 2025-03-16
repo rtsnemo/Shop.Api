@@ -22,6 +22,7 @@ namespace Shop.Infrastructure.Repositories
             var purchases = await _context.Purchases
                 .Where(p => p.Date >= dateThreshold)
                 .Include(p => p.Client)
+                .AsNoTracking()
                 .ToListAsync();
 
             return purchases;

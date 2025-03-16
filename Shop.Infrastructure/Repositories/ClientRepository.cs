@@ -19,6 +19,7 @@ namespace Shop.Infrastructure.Repositories
         {
             return await _context.Clients
                 .Where(c => c.DateOfBirth.Month == date.Month && c.DateOfBirth.Day == date.Day)
+                .AsNoTracking()
                 .ToListAsync();
         }
     }

@@ -26,6 +26,7 @@ namespace Shop.Infrastructure.Repositories
                 .Where(pi => pi.Purchase.ClientId == customerId)
                 .Include(pi => pi.Product)
                 .ThenInclude(p => p.Category)
+                .AsNoTracking()
                 .ToListAsync();
 
             return purchaseItems;
